@@ -63,6 +63,10 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:scaffolding"
 
+    compile "org.grails.plugins:grails-spring-websocket:2.3.0"
+    compile "io.projectreactor:reactor-net"
+    compile "io.netty:netty-all:4.0.33.Final"
+
     runtime "org.grails.plugins:asset-pipeline"
 
     testCompile "org.grails:grails-plugin-testing"
