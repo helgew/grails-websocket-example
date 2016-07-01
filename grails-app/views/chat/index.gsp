@@ -13,12 +13,18 @@
 	    var client = Stomp.over(socket);
 	    var headers = {ack: 'client'};
 		client.connect(headers, function() {
-			client.subscribe("/topic/hello", function(message) {
+			client.subscribe("/queue/hello", function(message) {
 				$("#helloDiv").append(message.body);
-				message.ack();
-			}, function(message) {
-				console.log(message)
-			});
+
+				// ack means ack, i.e. message removed from queue, no re-delivery
+				// message.ack();
+
+				// nack means reject, i.e. message stays queued and is re-delivered immediately
+				// message.nack();
+
+				// do nothing means message stays queued and is re-delivered on next subscription
+
+			}, headers);
 		});
 
 		$("#helloButton").click(function() {

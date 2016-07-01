@@ -7,7 +7,7 @@ class ChatController {
 	def index() {}
 
 	@MessageMapping("/hello")
-	@SendTo("/topic/hello")
+	@SendTo("/queue/hello")
 	protected String hello(String world) {
 		return "hello from controller, ${world}!"
 	}
